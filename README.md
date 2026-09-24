@@ -128,7 +128,8 @@ Run the cells sequentially to:
 
 ### Query 5 — Expense + Budget
 
-<img width="851" height="218" alt="Screenshot 2026-09-25 001717 - Copy" src="https://github.com/user-attachments/assets/6b666fb0-6862-4e07-93ac-ccf4578f4efe" />
+<img width="845" height="325" alt="Screenshot 2026-09-25 001729" src="https://github.com/user-attachments/assets/cbcf7d48-f254-4969-85cb-062b4e7ba395" />
+
 
 
 ### Compound Query
