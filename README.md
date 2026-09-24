@@ -108,7 +108,8 @@ Run the cells sequentially to:
 
 ### Query 1 — Currency Conversion + Expense
 
-![Query 1](screenshots/query-1-expense-currency.png)
+<img width="843" height="311" alt="Screenshot 2026-09-25 001622" src="https://github.com/user-attachments/assets/a79729b7-d341-414f-a49b-3a24f24b4254" />
+
 
 ### Query 2 — Budget Status
 
