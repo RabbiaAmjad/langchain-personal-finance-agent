@@ -113,23 +113,28 @@ Run the cells sequentially to:
 
 ### Query 2 — Budget Status
 
-![Query 2](screenshots/query-2-budget-status.png)
+<img width="849" height="249" alt="Screenshot 2026-09-25 001637" src="https://github.com/user-attachments/assets/5d907751-04ab-47ba-b648-10865b558ec4" />
+
 
 ### Query 3 — Savings Goal
 
-![Query 3](screenshots/query-3-savings-goal.png)
+<img width="848" height="164" alt="Screenshot 2026-09-25 001706" src="https://github.com/user-attachments/assets/c974dfda-ba1b-4feb-8087-1ce723bbfcd9" />
+
 
 ### Query 4 — Spending Tip
 
-![Query 4](screenshots/query-4-spending-tip.png)
+<img width="851" height="218" alt="Screenshot 2026-09-25 001717" src="https://github.com/user-attachments/assets/9d376478-1345-4724-9db1-5d29bccf7c4a" />
+
 
 ### Query 5 — Expense + Budget
 
-![Query 5](screenshots/query-5-expense-budget.png)
+<img width="851" height="218" alt="Screenshot 2026-09-25 001717 - Copy" src="https://github.com/user-attachments/assets/6b666fb0-6862-4e07-93ac-ccf4578f4efe" />
+
 
 ### Compound Query
 
-![Compound Query](screenshots/compound-query.png)
+<img width="846" height="293" alt="Screenshot 2026-09-25 001743" src="https://github.com/user-attachments/assets/c0d86dec-fff2-4d68-b453-edbf6df94355" />
+
 
 ## 📁 Project Structure
 
