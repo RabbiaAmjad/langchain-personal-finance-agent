@@ -145,14 +145,7 @@ personal-finance-assistant-agent/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-│
-└── screenshots/
-    ├── query-1-expense-currency.png
-    ├── query-2-budget-status.png
-    ├── query-3-savings-goal.png
-    ├── query-4-spending-tip.png
-    ├── query-5-expense-budget.png
-    └── compound-query.png
+
 ```
 
 ## 👩‍💻 Author
