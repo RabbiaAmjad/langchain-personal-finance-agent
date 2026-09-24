@@ -1,50 +1,34 @@
 # 💰 Personal Finance Assistant Agent
 
-An AI-powered personal finance assistant built with **LangChain Agents, AWS Bedrock, and function calling**.
+An AI-powered Personal Finance Assistant built using **LangChain Agents, AWS Bedrock, and function calling**. The agent can understand a user's financial request and automatically select the appropriate tool or combination of tools to complete the task.
 
-The project demonstrates how an AI agent can understand a user's natural-language financial request, decide which tool or combination of tools is needed, execute those tools, and return a useful response.
+## 🚀 Project Overview
 
-> **Built as part of the Gen AI Bootcamp — Session 5: LangChain Agents & Function Calling | AWS Bedrock.**
+The Personal Finance Assistant supports common financial tasks such as:
 
----
+* Logging expenses
+* Checking budget status
+* Converting currencies
+* Calculating savings goals
+* Providing spending tips
 
-## 🎯 Project Overview
-
-Traditional programs usually follow a predefined flow: the developer decides which function should run for a particular input.
-
-This project demonstrates a different approach.
-
-The **LLM acts as the decision-maker**. Based on the user's request, the agent determines which financial tool should be called and can use multiple tools when a request involves more than one task.
+The agent can also handle queries that require **multiple tools in a single interaction**.
 
 ### Agent Workflow
 
 ```text
 User Query
-     ↓
-AWS Bedrock LLM
-     ↓
-Agent determines required tool(s)
-     ↓
-Tool execution
-     ↓
-Tool result
-     ↓
-Final response
+    ↓
+LLM analyzes the request
+    ↓
+Selects the appropriate tool(s)
+    ↓
+Tool executes the required operation
+    ↓
+LLM processes the result
+    ↓
+Final Response
 ```
-
-For example:
-
-> "I spent 50 USD on food today, convert it to PKR and log it."
-
-The agent can determine that the request requires:
-
-```text
-convert_currency
-       ↓
-calculate_expense
-```
-
----
 
 ## 🛠️ Tech Stack
 
@@ -56,149 +40,27 @@ calculate_expense
 * **Function Calling / Tool Use**
 * **Jupyter Notebook**
 
----
+## 🔧 Available Tools
 
-## 🔧 Tools Implemented
+### 1. Calculate Expense
 
-The agent is equipped with five financial tools.
+Logs an expense with its amount, category, description, and date.
 
-### 1. `calculate_expense`
+### 2. Get Budget Status
 
-Logs an expense using the amount, category, description, and current date.
+Checks the budget, spending, and remaining amount for a selected category.
 
-**Parameters:**
-
-* `amount`
-* `category`
-* `description`
-
----
-
-### 2. `get_budget_status`
-
-Checks the remaining monthly budget for a selected spending category.
-
-**Supported categories:**
-
-* Food
-* Transport
-* Entertainment
-* Shopping
-
----
-
-### 3. `convert_currency`
+### 3. Convert Currency
 
 Converts an amount between supported currencies using predefined exchange rates.
 
-**Supported currencies:**
+### 4. Calculate Savings Goal
 
-* USD
-* PKR
-* EUR
-* GBP
+Calculates how many months are required to reach a savings target based on a monthly savings amount.
 
-No external currency API is required for this tool.
+### 5. Get Spending Tip
 
----
-
-### 4. `calculate_savings_goal`
-
-Calculates the number of months required to reach a savings target based on the amount the user can save each month.
-
-**Parameters:**
-
-* `target_amount`
-* `monthly_savings`
-
----
-
-### 5. `get_spending_tip`
-
-Provides a practical money-saving tip based on the spending category where the user is overspending.
-
----
-
-## 🤖 Agent Capabilities
-
-The Personal Finance Assistant can:
-
-* 💸 Log expenses
-* 📊 Check category budgets
-* 💱 Convert currencies
-* 🎯 Calculate savings timelines
-* 💡 Provide spending tips
-* 🔗 Combine multiple tools for a single request
-
-The key feature of the project is **tool selection**: users do not need to specify which function should be used. They can simply describe what they want in natural language.
-
----
-
-## 🧪 Example Queries
-
-### Expense + Currency Conversion
-
-```text
-I spent 50 USD on food today, convert it to PKR and log it.
-```
-
-### Budget Status
-
-```text
-What is my remaining budget for entertainment?
-```
-
-### Savings Goal
-
-```text
-I want to save 100,000 PKR. I can save 10,000 per month.
-When will I reach my goal?
-```
-
-### Spending Tip
-
-```text
-I keep overspending on food, give me a money-saving tip.
-```
-
-### Expense + Budget
-
-```text
-Log 2000 PKR for transport and show my transport budget status.
-```
-
-### Compound Query
-
-```text
-I want to save 60,000 PKR by reducing my food spending.
-Give me a food-saving tip and tell me how many months it
-will take if I save 10,000 PKR every month.
-```
-
-The compound queries demonstrate that the agent can select and use **multiple tools within a single interaction**.
-
----
-
-## 📂 Project Structure
-
-```text
-personal-finance-assistant-agent/
-│
-├── Personal_Finance_Assistant_Agent.ipynb
-├── README.md
-├── requirements.txt
-├── .gitignore
-│
-└── screenshots/
-    ├── query-1-expense-currency.png
-    ├── query-2-budget-status.png
-    ├── query-3-savings-goal.png
-    ├── query-4-spending-tip.png
-    ├── query-5-expense-budget.png
-    └── compound-query.png
-```
-
----
+Provides a practical money-saving tip based on the selected spending category.
 
 ## ⚙️ Setup & Installation
 
@@ -227,26 +89,20 @@ using Jupyter Notebook, JupyterLab, or another compatible environment.
 
 ### 4. Configure AWS Bedrock
 
-The notebook requires access to **AWS Bedrock**.
-
-Add your own AWS Bedrock credentials/token in the configuration section of the notebook before running the agent.
-
-**Never commit real API keys, access tokens, passwords, or other credentials to GitHub.**
+Configure the AWS Bedrock credentials in the notebook's configuration section.
 
 ### 5. Run the notebook
 
 Run the cells sequentially to:
 
-1. Install/import dependencies
-2. Configure AWS Bedrock
-3. Initialize the LLM
-4. Define the five tools
-5. Test each tool individually
-6. Create the Personal Finance Agent
-7. Run the required sample queries
-8. Test the compound query
-
----
+* Install and import dependencies
+* Configure AWS Bedrock
+* Initialize the LLM
+* Define the five tools
+* Test the tools individually
+* Create the Personal Finance Agent
+* Run sample queries
+* Test a compound query
 
 ## 📸 Sample Outputs
 
@@ -274,29 +130,27 @@ Run the cells sequentially to:
 
 ![Compound Query](screenshots/compound-query.png)
 
----
+## 📁 Project Structure
 
-## 🔐 Security Note
-
-This repository does **not** contain AWS credentials.
-
-If you run this project locally, use your own AWS Bedrock credentials and keep them outside version control.
-
----
-
-## 📌 Project Scope
-
-This is an **educational prototype** demonstrating LangChain agents and function calling.
-
-The currency conversion uses fixed exchange rates and the budget values are predefined for demonstration purposes. The assistant is not intended to provide professional financial advice.
-
----
+```text
+personal-finance-assistant-agent/
+│
+├── Personal_Finance_Assistant_Agent.ipynb
+├── README.md
+├── requirements.txt
+├── .gitignore
+│
+└── screenshots/
+    ├── query-1-expense-currency.png
+    ├── query-2-budget-status.png
+    ├── query-3-savings-goal.png
+    ├── query-4-spending-tip.png
+    ├── query-5-expense-budget.png
+    └── compound-query.png
+```
 
 ## 👩‍💻 Author
 
 **Rabbia Amjad**
-
-Business Data Analytics Student
+B.Sc. Business Data Analytics
 COMSATS University Islamabad
-
-Interested in **data analytics, AI, and building technology-driven solutions with practical impact.**
