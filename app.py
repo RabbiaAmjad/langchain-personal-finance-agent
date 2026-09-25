@@ -184,16 +184,6 @@ def calculate_expense(
 
     date = datetime.now().strftime("%Y-%m-%d")
 
-    # Save expense for the current Streamlit session
-    st.session_state.expenses.append(
-        {
-            "date": date,
-            "amount": float(amount),
-            "category": category.title(),
-            "description": description,
-        }
-    )
-
     return (
         f"Expense logged successfully:\n"
         f"- Date: {date}\n"
@@ -201,7 +191,6 @@ def calculate_expense(
         f"- Category: {category.title()}\n"
         f"- Description: {description}"
     )
-
 
 # ============================================================
 # TOOL 2 — GET BUDGET STATUS
@@ -410,45 +399,35 @@ def run_agent(query: str) -> str:
         }
     )
 
+    # --------------------------------------------------------
+    # Save expenses to the current Streamlit session
+    # after the agent has successfully used the expense tool.
+    # --------------------------------------------------------
+
+    for message in result["messages"]:
+
+        if hasattr(message, "tool_calls"):
+
+            for tool_call in message.tool_calls:
+
+                if tool_call["name"] == "calculate_expense":
+
+                    args = tool_call["args"]
+
+                    st.session_state.expenses.append(
+                        {
+                            "date": datetime.now().strftime("%Y-%m-%d"),
+                            "amount": float(args["amount"]),
+                            "category": str(
+                                args["category"]
+                            ).title(),
+                            "description": str(
+                                args["description"]
+                            ),
+                        }
+                    )
+
     return result["messages"][-1].content
-
-
-# ============================================================
-# SIDEBAR
-# ============================================================
-
-with st.sidebar:
-
-    st.markdown("## 💰 Finance Assistant")
-
-    st.caption(
-        "Your AI assistant for everyday money management."
-    )
-
-    st.divider()
-
-    st.markdown("### 🧰 What I can do")
-
-    st.markdown(
-        """
-        💸 **Expenses**  
-        Log your spending
-
-        📊 **Budgets**  
-        Check category budgets
-
-        💱 **Currency**  
-        Convert supported currencies
-
-        🎯 **Savings**  
-        Plan savings goals
-
-        💡 **Tips**  
-        Get spending advice
-        """
-    )
-
-    st.divider()
 
     # --------------------------------------------------------
     # SESSION SUMMARY
