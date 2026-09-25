@@ -1,142 +1,176 @@
 # 💰 Personal Finance Assistant Agent
 
-An AI-powered Personal Finance Assistant built using **LangChain Agents, AWS Bedrock, and function calling**.
+<p align="center">
+  <strong>AI-powered personal finance assistant built with LangChain, AWS Bedrock, and Streamlit</strong>
+</p>
 
-The agent understands a user's financial request and automatically selects the appropriate tool or combination of tools to complete the task. The project is implemented in a Jupyter Notebook and is also available through an interactive **Streamlit web application**.
+<p align="center">
+  An intelligent financial assistant that understands natural-language requests, selects the appropriate tools, and can combine multiple tools to complete compound queries.
+</p>
+
+<p align="center">
+
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-Agent-green)
+![AWS Bedrock](https://img.shields.io/badge/AWS-Bedrock-orange?logo=amazon-aws&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?logo=jupyter&logoColor=white)
+![License](https://img.shields.io/badge/Project-Academic-lightgrey)
+
+</p>
+
+<p align="center">
+
+🚀 **https://langchain-personal-finance-agent-dtdkjzezwqzupfwtoz8mus.streamlit.app/**
+
+</p>
 
 ---
 
-## 🚀 Live Demo
+## 📌 Overview
 
-Try the deployed Streamlit application:
+The **Personal Finance Assistant Agent** is an AI-powered application designed to help users with common personal finance tasks through natural-language interaction.
 
-👉 **[Open the Personal Finance Assistant](YOUR_STREAMLIT_URL)**
+The agent uses **LangChain Agents**, **AWS Bedrock**, and **function calling / tool use** to analyze a user's request and automatically select the appropriate financial tool or combination of tools.
 
-The web application provides an interactive interface where users can enter natural-language financial queries and receive responses from the AI agent.
+The project includes both:
 
-> **Note:** The application uses AWS Bedrock credentials configured through Streamlit secrets. No AWS credentials or API keys are stored in the GitHub repository.
-
----
-
-## 📌 Project Overview
-
-The Personal Finance Assistant supports common financial tasks such as:
-
-- Logging expenses
-- Checking budget status
-- Converting currencies
-- Calculating savings goals
-- Providing spending tips
-
-The agent can also handle **compound queries** that require multiple tools in a single interaction.
-
-For example, a user can ask a question that requires an expense to be processed and then have the budget status calculated.
+- 📓 A **Jupyter Notebook** containing the complete agent implementation
+- 💻 An interactive **Streamlit web application** for user-friendly interaction
 
 ---
 
 ## ✨ Features
 
-### 🤖 AI-Powered Agent
-
-The application uses a LangChain agent with **AWS Bedrock** to understand natural-language financial requests and determine which tool or tools are required.
-
-### 🛠️ Five Financial Tools
-
-The agent includes five specialized tools:
-
-1. Calculate Expense
-2. Get Budget Status
-3. Convert Currency
-4. Calculate Savings Goal
-5. Get Spending Tip
-
-### 🔗 Multi-Tool / Compound Queries
-
-The agent can use more than one tool when a user's request requires multiple operations.
-
-### 💻 Interactive Streamlit Interface
-
-The project includes a Streamlit web application with:
-
-- Interactive chat-style input
-- Financial assistant interface
-- Tool descriptions
-- Sample queries
-- Session-based expense tracking
-- User-friendly responses
-
-### 📓 Jupyter Notebook Implementation
-
-The complete agent implementation and tool development are documented in the Jupyter Notebook.
+| Feature | Description |
+|---|---|
+| 🤖 AI Agent | Understands natural-language financial requests |
+| 💰 Expense Tracking | Logs expenses with relevant details |
+| 📊 Budget Analysis | Checks budget, spending, and remaining amounts |
+| 💱 Currency Conversion | Converts amounts between supported currencies |
+| 🎯 Savings Goals | Calculates the time required to reach a savings target |
+| 💡 Spending Tips | Provides practical spending-related tips |
+| 🔗 Compound Queries | Can use multiple tools for a single request |
+| 💻 Streamlit UI | Provides an interactive web interface |
+| ☁️ AWS Bedrock | Uses Amazon Bedrock for the language model |
 
 ---
 
-## 🧠 Agent Workflow
+## 🚀 Live Demo
 
-The overall workflow is:
+The Personal Finance Assistant is deployed as an interactive Streamlit application.
+
+### 👉 [Open the Personal Finance Assistant]- https://langchain-personal-finance-agent-dtdkjzezwqzupfwtoz8mus.streamlit.app/
+
+The application allows users to enter natural-language queries and receive responses from the AI-powered financial agent.
+
+### Example
 
 ```text
-User Query
-    ↓
-LLM analyzes the request
-    ↓
-Selects the appropriate tool(s)
-    ↓
-Tool executes the required operation
-    ↓
-LLM processes the result
-    ↓
-Final Response
+I spent $50 on groceries. What is my remaining food budget?
 ```
 
-For a compound query, the agent can determine that multiple tools are required and execute the appropriate sequence of operations.
+The agent can recognize that this request requires more than one operation and use the appropriate tools to process it.
+
+> **Note:** Budget and spending figures in the application are based on the project's sample/demo data. Expenses logged through the application are maintained only for the current session.
 
 ---
 
-## 🏗️ Architecture
+# 🧠 How the Agent Works
 
-The project has two main interfaces built around the same financial-agent concept:
+The agent follows a tool-selection workflow:
 
 ```text
-                    ┌──────────────────────┐
-                    │      User Query      │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │   Streamlit /        │
-                    │   Jupyter Interface  │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │   LangChain Agent    │
-                    │   + AWS Bedrock LLM  │
-                    └──────────┬───────────┘
-                               │
-                  ┌────────────┼────────────┐
-                  │            │            │
-                  ▼            ▼            ▼
-              Expense       Budget       Currency
-               Tool          Tool          Tool
-                  │            │            │
-                  └────────────┼────────────┘
-                               │
-                  ┌────────────┴────────────┐
-                  │                         │
-                  ▼                         ▼
-             Savings Goal              Spending Tip
-                 Tool                      Tool
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │    Final Response    │
-                    └──────────────────────┘
+                    ┌─────────────────┐
+                    │    User Query   │
+                    └────────┬────────┘
+                             │
+                             ▼
+                  ┌──────────────────────┐
+                  │  LLM Analyzes Query  │
+                  └──────────┬───────────┘
+                             │
+                             ▼
+                  ┌──────────────────────┐
+                  │ Selects Tool(s)      │
+                  └──────────┬───────────┘
+                             │
+              ┌──────────────┼──────────────┐
+              │              │              │
+              ▼              ▼              ▼
+          Expense          Budget        Currency
+           Tool             Tool           Tool
+              │              │              │
+              └──────────────┼──────────────┘
+                             │
+                    ┌────────┴────────┐
+                    │                 │
+                    ▼                 ▼
+                 Savings           Spending
+                  Goal               Tip
+                  Tool               Tool
+                    │                 │
+                    └────────┬────────┘
+                             │
+                             ▼
+                  ┌──────────────────────┐
+                  │   Final AI Response  │
+                  └──────────────────────┘
+```
+
+For compound queries, the agent can determine that multiple tools are needed and process the request accordingly.
+
+---
+
+# 🏗️ Architecture
+
+```text
+                         USER
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │  Streamlit /        │
+                │  Jupyter Interface  │
+                └──────────┬──────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │   LangChain Agent   │
+                └──────────┬──────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │   AWS Bedrock LLM   │
+                │  Amazon Nova 2 Lite │
+                └──────────┬──────────┘
+                           │
+                           ▼
+              ┌────────────────────────────┐
+              │       Tool Selection       │
+              └─────────────┬──────────────┘
+                            │
+       ┌────────────────────┼────────────────────┐
+       │                    │                    │
+       ▼                    ▼                    ▼
+ Calculate Expense    Budget Status       Convert Currency
+       │                    │                    │
+       └────────────────────┼────────────────────┘
+                            │
+                   ┌────────┴────────┐
+                   │                 │
+                   ▼                 ▼
+          Calculate Savings     Get Spending Tip
+               Goal
+                   │                 │
+                   └────────┬────────┘
+                            │
+                            ▼
+                    Final Response
 ```
 
 ---
 
-## 🛠️ Tech Stack
+# 🛠️ Technology Stack
 
 - **Python**
 - **LangChain**
@@ -144,85 +178,180 @@ The project has two main interfaces built around the same financial-agent concep
 - **AWS Bedrock**
 - **Amazon Nova 2 Lite**
 - **Function Calling / Tool Use**
-- **Jupyter Notebook**
-- **Streamlit**
 - **Boto3**
+- **Streamlit**
+- **Jupyter Notebook**
 
 ---
 
-## 🔧 Available Tools
+# 🔧 Available Tools
 
-### 1. Calculate Expense
+The agent includes five specialized financial tools.
 
-Logs an expense with its amount, category, description, and date.
+| # | Tool | Purpose |
+|---|---|---|
+| 1 | `calculate_expense` | Logs an expense with amount, category, description, and date |
+| 2 | `get_budget_status` | Checks budget, spending, and remaining amount |
+| 3 | `convert_currency` | Converts an amount between supported currencies |
+| 4 | `calculate_savings_goal` | Calculates months required to reach a savings target |
+| 5 | `get_spending_tip` | Provides a practical spending-related tip |
 
-### 2. Get Budget Status
+---
 
-Checks the budget, spending, and remaining amount for a selected category.
+## 1. 💳 Calculate Expense
 
-### 3. Convert Currency
+Logs an expense with its:
+
+- Amount
+- Category
+- Description
+- Date
+
+Example:
+
+```text
+I spent $50 on groceries.
+```
+
+---
+
+## 2. 📊 Get Budget Status
+
+Checks the current budget status for a selected category.
+
+The tool provides information about:
+
+- Budget amount
+- Current spending
+- Remaining amount
+
+Example:
+
+```text
+What is my food budget status?
+```
+
+---
+
+## 3. 💱 Convert Currency
 
 Converts an amount between supported currencies using predefined exchange rates.
 
-### 4. Calculate Savings Goal
+Example:
 
-Calculates how many months are required to reach a savings target based on a monthly savings amount.
-
-### 5. Get Spending Tip
-
-Provides a practical money-saving tip based on the selected spending category.
+```text
+Convert 100 USD to EUR.
+```
 
 ---
 
-## 📋 Tool Summary
+## 4. 🎯 Calculate Savings Goal
 
-| Tool | Purpose |
-|---|---|
-| `calculate_expense` | Logs an expense |
-| `get_budget_status` | Checks budget and remaining amount |
-| `convert_currency` | Converts between supported currencies |
-| `calculate_savings_goal` | Calculates time required to reach a savings target |
-| `get_spending_tip` | Provides a spending-related financial tip |
+Calculates how many months are required to reach a savings target based on a monthly savings amount.
+
+Example:
+
+```text
+How many months will it take to save $5000
+if I save $500 every month?
+```
+
+---
+
+## 5. 💡 Get Spending Tip
+
+Provides a practical money-saving tip based on a selected spending category.
+
+Example:
+
+```text
+Give me a spending tip for groceries.
+```
+
+---
+
+# 🔗 Compound Queries
+
+One of the key capabilities of the agent is handling **compound queries** that require multiple tools.
+
+For example:
+
+```text
+I spent $50 on groceries. What is my remaining food budget?
+```
+
+The agent can:
+
+```text
+User Query
+    ↓
+Calculate Expense
+    ↓
+Update / Process Spending
+    ↓
+Get Budget Status
+    ↓
+Generate Final Response
+```
+
+This demonstrates the agent's ability to reason about a request and use multiple tools when required.
 
 ---
 
 # 💻 Streamlit Application
 
-The Streamlit application provides a user-friendly interface for interacting with the Personal Finance Assistant.
+The project includes an interactive Streamlit interface designed to make the financial agent easier to use.
 
-Users can enter natural-language queries instead of directly calling individual Python functions.
+The interface includes:
+
+- 💰 Personal Finance Assistant branding
+- 💬 Natural-language query input
+- 🛠️ Available tool information
+- 📊 Financial task support
+- 🔗 Compound query support
+- ℹ️ Demo-mode information
+- Session-based expense interaction
 
 ### Example Queries
 
 ```text
 Convert 100 USD to EUR.
-
-What is my food budget status?
-
-How many months will it take to save $5000
-if I save $500 every month?
-
-Give me a spending tip for groceries.
-
-I spent $50 on groceries. What is my remaining
-food budget?
 ```
 
-The final example is a **compound query** because it requires more than one operation.
+```text
+What is my food budget status?
+```
+
+```text
+How many months will it take to save $5000
+if I save $500 every month?
+```
+
+```text
+Give me a spending tip for groceries.
+```
+
+```text
+I spent $50 on groceries. What is my remaining food budget?
+```
 
 ---
 
-## 📸 Streamlit Application
+# 📸 Streamlit Application
 
-The deployed application provides an interactive interface for submitting financial queries.
+Screenshots of the deployed Streamlit application:
 
-![Streamlit Application](screenshots/streamlit_app.png)
+<img width="959" height="436" alt="image" src="https://github.com/user-attachments/assets/e93b9d42-c271-4133-9f9c-b28143bae0af" />
+
+<img width="959" height="433" alt="image" src="https://github.com/user-attachments/assets/94a97701-10d6-486a-9c93-6d67da16b487" />
+
+
 
 ---
 
 # 📓 Jupyter Notebook
 
-The Jupyter Notebook contains the development and implementation of the Personal Finance Assistant agent.
+The Jupyter Notebook contains the complete development and implementation of the Personal Finance Assistant Agent.
 
 The notebook demonstrates:
 
@@ -235,17 +364,22 @@ The notebook demonstrates:
 - Running sample queries
 - Testing compound queries
 
-Open:
+### Notebook
 
 ```text
 Personal_Finance_Assistant_Agent.ipynb
 ```
 
-using Jupyter Notebook, JupyterLab, or another compatible environment.
+The notebook can be opened using:
+
+- Jupyter Notebook
+- JupyterLab
+- VS Code
+- Another compatible Jupyter environment
 
 ---
 
-# ⚙️ Setup & Installation
+# ⚙️ Installation & Setup
 
 ## 1. Clone the Repository
 
@@ -264,17 +398,15 @@ Install the required Python packages:
 pip install -r requirements.txt
 ```
 
-The `requirements.txt` file contains the dependencies required by the project, including the libraries used for LangChain, AWS Bedrock, and Streamlit.
-
 ---
 
 ## 3. Configure AWS Bedrock
 
-The project uses **AWS Bedrock** to access the language model.
+This project uses **AWS Bedrock** to access the language model.
 
-For local notebook execution, configure your AWS credentials according to your AWS environment and the configuration used in the notebook.
+For local execution, configure your AWS credentials according to your AWS environment and the configuration used by the application.
 
-**Do not commit AWS credentials, API keys, or secret configuration files to GitHub.**
+**Never commit AWS credentials, API keys, or secret configuration files to GitHub.**
 
 ---
 
@@ -286,21 +418,28 @@ Open:
 Personal_Finance_Assistant_Agent.ipynb
 ```
 
-Run the cells sequentially.
+Run the notebook cells sequentially to:
 
-The notebook demonstrates the complete agent development process and tool functionality.
+1. Install/import dependencies
+2. Configure AWS Bedrock
+3. Initialize the language model
+4. Define the five tools
+5. Test the tools
+6. Create the agent
+7. Run sample queries
+8. Test compound queries
 
 ---
 
-# 🌐 Run the Streamlit Application Locally
+# 🌐 Run Streamlit Locally
 
-After installing the dependencies, run:
+To run the web application locally:
 
 ```bash
 streamlit run app.py
 ```
 
-Streamlit will start a local web server and provide a local URL in the terminal.
+Streamlit will start the application and provide a local URL in the terminal.
 
 Open that URL in your browser to interact with the Personal Finance Assistant.
 
@@ -308,114 +447,83 @@ Open that URL in your browser to interact with the Personal Finance Assistant.
 
 # 🔐 Security & Credentials
 
-AWS credentials and API keys should **never be committed to the repository**.
+Sensitive credentials must not be stored in the GitHub repository.
 
-The project uses environment-specific configuration for sensitive credentials.
+The project does **not** include:
 
-For the deployed Streamlit application, sensitive values should be configured through **Streamlit Secrets** rather than being written directly into `app.py`.
+- ❌ AWS access keys
+- ❌ AWS secret keys
+- ❌ API keys
+- ❌ `.env` files containing credentials
+- ❌ `secrets.toml` files containing credentials
 
-The repository intentionally does not contain:
+For the deployed Streamlit application, sensitive configuration should be stored using **Streamlit Secrets**.
 
-- AWS access keys
-- AWS secret keys
-- API keys
-- `.env` files containing credentials
-- `secrets.toml` files containing credentials
-
-The `.gitignore` file is configured to help prevent sensitive files from being committed.
+The repository's `.gitignore` file also helps prevent sensitive and unnecessary files from being committed.
 
 ---
 
 # 📸 Sample Outputs
 
-The following screenshots demonstrate the agent handling the required sample queries.
+The following screenshots demonstrate the agent handling the required queries.
 
 ## Query 1 — Currency Conversion + Expense
 
-![Currency Conversion and Expense](screenshots/currency.png)
+<img width="843" height="311" alt="Screenshot 2026-09-25 001622" src="https://github.com/user-attachments/assets/25b3bfdf-1a8c-4491-99c4-b61f8d228f41" />
+
 
 ---
 
 ## Query 2 — Budget Status
 
-![Budget Status](screenshots/budget.png)
+<img width="849" height="249" alt="Screenshot 2026-09-25 001637" src="https://github.com/user-attachments/assets/12cfb6b7-e280-44fa-b1f8-546b9dede2d2" />
+
 
 ---
 
 ## Query 3 — Savings Goal
 
-![Savings Goal](screenshots/savings.png)
+<img width="848" height="164" alt="Screenshot 2026-09-25 001706" src="https://github.com/user-attachments/assets/c85c72a9-e80d-495a-80cd-3b56ba41a828" />
+
 
 ---
 
 ## Query 4 — Spending Tip
 
-![Spending Tip](screenshots/spending_tip.png)
+<img width="851" height="218" alt="Screenshot 2026-09-25 001717 - Copy" src="https://github.com/user-attachments/assets/dd396bc4-6c36-40d0-bc12-083315653acf" />
+
 
 ---
 
 ## Query 5 — Expense + Budget
 
-![Expense and Budget](screenshots/expense.png)
+<img width="845" height="325" alt="Screenshot 2026-09-25 001729" src="https://github.com/user-attachments/assets/44afbfa2-11b3-4b68-afb1-243b34817731" />
+
 
 ---
 
 ## Compound Query
 
-The agent can also handle a query that requires multiple tools.
-
 ![Compound Query](screenshots/compound_query.png)
 
-This demonstrates the agent's ability to analyze a request and use multiple tools when necessary.
+<img width="846" height="293" alt="Screenshot 2026-09-25 001743" src="https://github.com/user-attachments/assets/a02af2b2-5b5b-4b7f-87f7-db5a1777ef05" />
 
----
-
-# 📁 Project Structure
-
-```text
-personal-finance-assistant-agent/
-│
-├── app.py
-├── Personal_Finance_Assistant_Agent.ipynb
-├── README.md
-├── requirements.txt
-├── .gitignore
-│
-└── screenshots/
-    ├── streamlit_app.png
-    ├── currency.png
-    ├── budget.png
-    ├── savings.png
-    ├── spending_tip.png
-    ├── expense.png
-    └── compound_query.png
-```
-
-### File Description
-
-| File / Folder | Description |
-|---|---|
-| `app.py` | Streamlit application for interacting with the finance agent |
-| `Personal_Finance_Assistant_Agent.ipynb` | Complete Jupyter Notebook implementation |
-| `requirements.txt` | Python dependencies required by the project |
-| `.gitignore` | Prevents unnecessary and sensitive files from being committed |
-| `screenshots/` | Screenshots demonstrating agent outputs and the Streamlit application |
-| `README.md` | Project documentation |
 
 ---
 
 # 🧪 Testing
 
-The project was tested using individual queries for all five tools as well as a compound query involving multiple tools.
+The project was tested using individual queries for all five tools and a compound query involving multiple tools.
 
-The tests demonstrate that the agent can:
+The testing demonstrates that the agent can:
 
-- Identify the user's intended financial task
+- Understand natural-language financial requests
+- Identify the intended financial task
 - Select the appropriate tool
-- Pass the required parameters to the tool
-- Process the tool result
-- Return a natural-language response
-- Use multiple tools for compound requests
+- Pass the required parameters
+- Process tool results
+- Generate a natural-language response
+- Use multiple tools when required
 
 ---
 
@@ -429,13 +537,63 @@ The main objectives of this project are to demonstrate:
 4. Using function calling / tool use
 5. Allowing an agent to select tools dynamically
 6. Handling compound queries using multiple tools
-7. Building an interactive interface with Streamlit
-8. Deploying an AI application for public demonstration
+7. Building an interactive Streamlit interface
+8. Deploying an AI application for demonstration
+
+---
+
+# 📁 Project Structure
+
+```text
+personal-finance-assistant-agent/
+│
+├── app.py
+├── Personal_Finance_Assistant_Agent.ipynb
+├── README.md
+├── requirements.txt
+├── .gitignore
+
+```
+
+---
+
+## 📄 File Description
+
+| File / Folder | Description |
+|---|---|
+| `app.py` | Streamlit application for interacting with the finance agent |
+| `Personal_Finance_Assistant_Agent.ipynb` | Complete Jupyter Notebook implementation |
+| `requirements.txt` | Python dependencies required by the project |
+| `.gitignore` | Prevents unnecessary and sensitive files from being committed |
+| `screenshots/` | Screenshots demonstrating agent outputs and the Streamlit application |
+| `README.md` | Project documentation |
+
+---
+
+# 📚 Project Deliverables
+
+This project includes:
+
+- ✅ Jupyter Notebook with the complete agent implementation
+- ✅ Five functional financial tools
+- ✅ Individual tool demonstrations
+- ✅ Compound query demonstration
+- ✅ Streamlit interactive application
+- ✅ GitHub repository
+- ✅ Project documentation
+- ✅ Screenshots of sample outputs
 
 ---
 
 # 👩‍💻 Author
 
-**Rabbia Amjad**  
-B.Sc. Business Data Analytics  
-COMSATS University Islamabad
+### Rabbia Amjad
+
+**B.Sc. Business Data Analytics**  
+**COMSATS University Islamabad**
+
+---
+
+<p align="center">
+  Made with 🐍 Python, 🤖 LangChain, ☁️ AWS Bedrock, and 💻 Streamlit
+</p>
