@@ -504,8 +504,6 @@ The following screenshots demonstrate the agent handling the required queries.
 
 ## Compound Query
 
-![Compound Query](screenshots/compound_query.png)
-
 <img width="846" height="293" alt="Screenshot 2026-09-25 001743" src="https://github.com/user-attachments/assets/a02af2b2-5b5b-4b7f-87f7-db5a1777ef05" />
 
 
