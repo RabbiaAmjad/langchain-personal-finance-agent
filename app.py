@@ -842,23 +842,11 @@ for column, feature in zip(columns, features):
     with column:
 
         st.markdown(
-            f"""
-            <div class="feature-card">
-
-                <div class="feature-icon">
-                    {icon}
-                </div>
-
-                <div class="feature-title">
-                    {title}
-                </div>
-
-                <div class="feature-description">
-                    {description}
-                </div>
-
-            </div>
-            """,
+            f"""<div class="feature-card">
+<div class="feature-icon">{icon}</div>
+<div class="feature-title">{title}</div>
+<div class="feature-description">{description}</div>
+</div>""",
             unsafe_allow_html=True,
         )
 
