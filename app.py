@@ -760,21 +760,13 @@ with st.sidebar:
 # ============================================================
 
 st.markdown(
-    """
-    <div class="hero">
-
-        <div class="hero-title">
-            💰 Personal Finance Assistant
-        </div>
-
-        <div class="hero-subtitle">
-            Your AI assistant for expenses, budgets,
-            currency conversion, savings goals,
-            and spending tips.
-        </div>
-
-    </div>
-    """,
+    """<div class="hero">
+<div class="hero-title">💰 Personal Finance Assistant</div>
+<div class="hero-subtitle">
+Your AI assistant for expenses, budgets, currency conversion,
+savings goals, and spending tips.
+</div>
+</div>""",
     unsafe_allow_html=True,
 )
 
@@ -784,17 +776,13 @@ st.markdown(
 # ============================================================
 
 st.markdown(
-    """
-    <div class="demo-notice">
-        ℹ️ <b>Demo Mode:</b>
-        Budget and spending figures are sample data.
-        Expenses logged here are kept only for the
-        current session.
-    </div>
-    """,
+    """<div class="demo-notice">
+ℹ️ <b>Demo Mode:</b>
+Budget and spending figures are sample data.
+Expenses logged here are kept only for the current session.
+</div>""",
     unsafe_allow_html=True,
 )
-
 
 # ============================================================
 # FEATURE CARDS
