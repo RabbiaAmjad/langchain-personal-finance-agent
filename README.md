@@ -27,6 +27,12 @@
 
 ---
 
+# 🤖 AI DataYard — Personal Finance Assistant Agent
+
+> **AI DataYard's Generative AI Bootcamp Project**
+
+> An AI-powered Personal Finance Assistant built as part of AI DataYard's Generative AI Bootcamp using LangChain Agents, AWS Bedrock, function calling, and Streamlit.
+
 ## 📌 Overview
 
 The **Personal Finance Assistant Agent** is an AI-powered application designed to help users with common personal finance tasks through natural-language interaction.
