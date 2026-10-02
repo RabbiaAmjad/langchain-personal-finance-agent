@@ -569,7 +569,6 @@ personal-finance-assistant-agent/
 | `Personal_Finance_Assistant_Agent.ipynb` | Complete Jupyter Notebook implementation |
 | `requirements.txt` | Python dependencies required by the project |
 | `.gitignore` | Prevents unnecessary and sensitive files from being committed |
-| `screenshots/` | Screenshots demonstrating agent outputs and the Streamlit application |
 | `README.md` | Project documentation |
 
 ---
